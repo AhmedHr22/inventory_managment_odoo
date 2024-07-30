@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>     
+        <menuitem id="product_menuitems_menu" name="product_managment" web_icon="inventory_managment,static/company.png">
+            <menuitem id="product_menuitem_submenu" name="product_settings">
+                    <menuitem id="product_menuitem_view" name="product" action="product_action"/>
+                    <menuitem id="supplier_menuitem_view" name="supplier" action="supplier_action"/>
+                    <menuitem id="category_menuitem_view" name="category" action="category_action"/>
+            </menuitem>
+        </menuitem>
+    </data>
+</odoo>

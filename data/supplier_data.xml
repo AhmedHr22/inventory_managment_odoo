@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record id="supplier_record" model="inventory.supplier">
+            <field name="name">djamel</field>
+            <field name="contact_info">0254848488</field>
+            <field name="is_stock_available">True</field>
+            <field name="supply_category">poor</field>
+        </record>
+        <record id="supplier_record2" model="inventory.supplier">
+            <field name="name" >Karim </field>
+            <field name="contact_info">0532366565</field>
+            <field name="is_stock_available">False</field>
+            <field name="supply_category">expensive</field>
+        </record>
+        <record id="supplier_record3" model="inventory.supplier">
+            <field name="name">rachid</field>
+            <field name="contact_info">084545435</field>
+            <field name="is_stock_available">True</field>
+            <field name="supply_category">medium</field>
+        </record>
+    </data>
+</odoo>

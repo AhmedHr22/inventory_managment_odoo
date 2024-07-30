@@ -1,0 +1,20 @@
+<odoo>
+    <data>
+        <record id="product_record1" model="inventory.product">
+            <field name="name">f-22 raptor</field>
+            <field name="price">15515565</field>
+            <field name="shape">stealth fighter aircraft</field>
+            <field name="description">The Lockheed Martin/Boeing F-22 Raptor is an American twin-engine all-weather stealth fighter aircraft developed and produced for the United States Air Force</field>
+            <field name="weight">2533</field>
+            <field name="quality">first class</field>
+        </record>
+        <record id="product_record2" model="inventory.product">
+            <field name="name">bomber b-52</field>
+            <field name="price">515515</field>
+            <field name="shape">jet-powered strategic bomber</field>
+            <field name="description">The Boeing B-52 Stratofortress is an American long-range, subsonic, jet-powered strategic bomber.</field>
+            <field name="weight">5321</field>
+            <field name="quality">second class</field>
+        </record>
+    </data>
+</odoo>
