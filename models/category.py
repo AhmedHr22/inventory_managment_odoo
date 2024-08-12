@@ -9,3 +9,4 @@ class Category(models.Model):
     product_ids = fields.One2many('inventory.product','category_id',string="product_id")
     postcode = fields.Integer(string="postcode")
     
+    

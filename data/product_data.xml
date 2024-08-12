@@ -8,6 +8,7 @@
             <field name="weight">2533</field>
             <field name="quality">first class</field>
         </record>
+        
         <record id="product_record2" model="inventory.product">
             <field name="name">bomber b-52</field>
             <field name="price">515515</field>

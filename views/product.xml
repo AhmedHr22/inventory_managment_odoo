@@ -1,68 +1,132 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <data>
-            <record id="product_form_view" model="ir.ui.view">
-                <field name="name" >product.form</field>
+        <!-- <record id="action_check_stock_level" model="ir.actions.server">
+            <field name="name">check stock action</field>
+            <field name="model_id" ref="model_inventory_product"/>
+            <field name="state">code</field>
+            <field name="code">action = env['inventory.product'].check_reorder_levels()</field>
+        </record>
+
+        <record id="schedule_server_action" model="ir.cron">
+            <field name="name">check the reorder levels</field>
+            <field name="model_id" ref="model_ir_actions_server"/>
+            <field name="state">code</field>
+            <field name="interval_type">minutes</field>
+            <field name="interval_number">1</field>
+            <field name="numbercall">-1</field>
+            <field name="doall">False</field>
+            <field name="code">model.browse(ref('action_check_stock_level')).run()</field>
+        </record> -->
+
+        <!-- <record id="terminate_action" model="ir.actions.act_window">
+            <field name="name">teminate action</field>
+            <field name="res_model">inventory.product</field>
+            <field name="view_mode"> form</field>
+            <field name="domain">[('state','=', 'terminate')]</field>
+        </record> -->
+
+        <!-- <record id="smart_button_action" model="ir.actions.act_window">
+            <field name="name" >smart button action</field>
+            <field name="res_model">inventory.inventory</field>
+            <field name="view_mode">tree</field>
+        </record> -->
+
+        <!-- <record id="smart_button_action_2" model="ir.actions.act_window">
+                <field name="name">smart action button</field>
+                <field name="res_model">inventory.inventory</field>
+                <field name="view_mode">tree,form</field>
+        </record> -->
+
+        <record id="product_form_view" model="ir.ui.view">
+            <field name="name" >product form</field>
+            <field name="model">inventory.product</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button name="accept_action" string="accept" type="object" /> 
+                        <button name="decline_action" string="decline" type='object'/>
+                        <!-- <button name="terminate_action" string="terminate" type="object"/> -->
+                        <!-- <button name="%(inventory_managments.terminate_action)d" string="terminate" type="action"/> -->
+                        <field name="state" widget="statusbar"/>
+                    </header>
+                    <sheet>  
+                        <!-- <div class="oe_button_box" name="button_box">
+                            <button name="%(inventory_managments.smart_button_action)d" type="action" class="oe_stat_button" string="category">
+                                <field name="price" />
+                            </button>
+                        </div> -->
+                        
+                        <!-- <div class="oe_button_box" name="button_box">
+                            <button name="%(inventory_managments.smart_button_action_2)d" type="action" class="stat_button">
+                                <field name="quality" />
+                            </button>
+                        </div> -->
+                        
+                        <group>
+                            <field name="name" />
+                            <field name="description"/>
+                            <field name="supplier_ids"/>
+                            <field name="creation_date"/>
+                            <field name="category_id" />
+                            <field name="category_code"/>
+                        </group>
+                        
+                        <notebook>
+                            <page string="characteristic">
+                                <group>
+                                    <field name="shape"/>
+                                    <field name="quality"/>
+                                    <field name="details"/>
+                                    <field name="weight"/>  
+                                </group>        
+                            </page>
+                            
+                            <page string="budget">
+                                <group>
+                                    <field name="price" />
+                                    <field name="tax"/>
+                                    <field name="final_price"/>
+                                </group>
+                                <group>
+                                    <field name="stock_level"/>
+                                    <field name="color"/>
+                                    <field name="postcode"/>
+                                </group>     
+                            </page>
+                            
+                            <page string="inventory">
+                                <field name="inventory_ids">
+                                    <tree editable="bottom">
+                                        <field name="name"/>
+                                        <field name="quantity"/>
+                                        <field name="mouvement_type"/>
+                                    </tree>
+                                </field>    
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record id="product_tree_view" model="ir.ui.view">
+                <field name="name">product.tree</field>
                 <field name="model">inventory.product</field>
                 <field name="arch" type="xml">
-                    <form>
-                        <sheet>
-                            <group>
-                                <field name="name" />
-                                <field name= "description"/>
-                                <field name="price"/>
-                            </group>
-                            <group>
-                                <field name="supplier_ids"/>
-                            </group>
-                            <group>
-                                <field name="creation_date"/>
-                                <field name="category_id" />
-                                <field name="category_code"/>
-                            </group>
-                            <notebook>
-                                <page string="characteristic">
-                                            <field name="shape"/>
-                                            <field name="quality"/>
-                                            <field name="details"/>
-                                            <field name="weight"/>  
-                                </page>
-                                <page string="budget">
-                                    <group>
-                                        <field name="price" />
-                                        <field name="tax"/>
-                                        <field name="final_price"/>
-                                    </group>
-                                    <group>
-                                        <field name="stock_level"/>
-                                        <field name="color"/>
-                                        <field name="postcode"/>
-                                    </group>
-                                       
-                                </page>
-                            </notebook>
-                        </sheet>
-                    </form>
+                    <tree>
+                        <field name="name" />
+                        <field name="price"/>
+                        <field name="description"/>
+                    </tree>
                 </field>
-            </record>
-            
-            <record id="product_tree_view" model="ir.ui.view">
-                    <field name="name">product.tree</field>
-                    <field name="model">inventory.product</field>
-                    <field name="arch" type="xml">
-                        <tree>
-                            <field name="name" />
-                            <field name="price"/>
-                            <field name="description"/>
-                        </tree>
-                    </field>
-            </record>
+        </record>
 
-            <record id="product_action" model="ir.actions.act_window">
-                <field name="name">product actions</field>
-                <field name="res_model">inventory.product</field>
-                <field name="view_mode">tree,form</field>
-            </record>
+        <record id="product_action" model="ir.actions.act_window">
+            <field name="name">product actions</field>
+            <field name="res_model">inventory.product</field>
+            <field name="view_mode">tree,form</field>
+        </record>
 
     </data> 
 </odoo>

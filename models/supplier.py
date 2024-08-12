@@ -13,10 +13,10 @@ class Supplier(models.Model):
     supply_category = fields.Selection([('poor','Poor'),('medium','Medium'),('expensive','Expensive')])
     product_id  = fields.Many2many('inventory.product',string="products")
     
-    @api.model
-    def retreive_product_by_supplier(self):
-        _logger.info('Entering retreive_product_by_supplier method')
-        for rec in self:
-            _logger.debug('Processing record: %s', rec)
-        _logger.info('Exiting retreive_product_by_supplier method')
-        return self
+    # @api.model
+    # def retreive_product_by_supplier(self):
+    #     _logger.info('Entering retreive_product_by_supplier method')
+    #     for rec in self:
+    #         _logger.debug('Processing record: %s', rec)
+    #     _logger.info('Exiting retreive_product_by_supplier method')
+    #     return self

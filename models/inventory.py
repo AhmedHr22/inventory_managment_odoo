@@ -6,8 +6,7 @@ class Inventory(models.Model):
 
     name= fields.Char(string="name")
     quantity= fields.Integer(string="quantity")
-    product_id = fields.Many2one('inventory.inventory',string="product")
-    quantity = fields.Integer(string="quantity")
+    product_id = fields.Many2one('inventory.product', string="Product")
     mouvement_type = fields.Selection([('incoming','Incoming'),('outgoing','Outgoing')])
 
     

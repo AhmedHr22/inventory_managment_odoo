@@ -18,5 +18,5 @@
     "license":"LGPL-3",
     "installable":True,
     "application":True,
-    "version":'1'
+    "version":'1',
 }
